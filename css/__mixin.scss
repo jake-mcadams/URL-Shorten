@@ -1,0 +1,8 @@
+@mixin side_transition_reduce {
+    transition-property: grid-template-columns;
+    transition-duration: 1s;
+}
+@mixin side_transition_increase {
+    transition-property: grid-template-columns;
+    transition-duration: 1s;
+}

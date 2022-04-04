@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <script src="https://kit.fontawesome.com/f68bcc2bd8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <script src="https://www.googleapis.com/auth/script.external_request"></script> -->
+    <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
+    </style>
+  </head>
+  <body>
+    <header>
+     <div id="img_nav_container">
+    <div id="img_container">
+      <img src="./images/logo.svg" alt="" />
+    </div>
+
+    <nav id="navigation">
+      <a class="nav_link" href="#">Features</a>
+      <a class="nav_link" href="#">Pricing</a>
+      <a class="nav_link" href="#">Resources</a>
+    </nav>
+  </div>
+
+  <div class="mobile_navigation">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+  <div id="button_container">
+    <button id="login">Login</button>
+    <button id="signUp" class="button">Sign Up</button>
+  </div> 
+    </header>
+
+    <main id="app_container">
+      <section id="intro">
+        <div id="intro_container">
+          <div id="intro_title">More than just shorter links</div>
+          <p id="intro_description">
+            Build your brand’s recognition and get detailed insights on how your
+            links are performing.
+          </p>
+          <button class="button">Get Started</button>
+        </div>
+        <div id="intro_image_container">
+          <img id="intro_image" src="/images/illustration-working.svg" alt="">
+        </div>
+      </section>
+
+      <section id="benifits">
+        <div class="shorten_container">
+          <form name="shorten_form" id="shorten">
+            <div id="url_button_container">
+              <div id="full_container">
+                <input id="fullUrl" class ="url_Input" type="text" name="fullUrl" placeholder="Shorten a link here..." autocomplete="off">
+                  <div id="add_link">Please add a link</div>
+              </div>
+              <button type="submit" class="button" id="shorten_button">Shorten It!</button>
+            </div>
+          </form>
+        </div>
+        <div id="benifits_heading_container">
+          <div class="url_link_container">
+            <div class="test_url_shortened">
+              <div id="full_url">
+                <a href="#">https://www.frontendmentor.io/home</a>
+              </div>
+              <!-- <div id="short_button_container"> -->
+                <div id="short_url">
+                  <a href="#">https://reLink/geOXp9</a>
+                </div>
+                <button id="copy_short_url" class="button">Copy</button>
+              <!-- </div> -->
+            </div>
+            <div class="test_url_shortened">
+              <div id="full_url">
+                <a href="#">https://www.frontendmentor.io/home</a>
+              </div>
+              <!-- <div id="short_button_container"> -->
+                <div id="short_url">
+                  <a href="#">https://reLink/geOXp9</a>
+                </div>
+                <button id="copy_short_url" class="button">Copy</button>
+              <!-- </div> -->
+            </div>
+            <div class="test_url_shortened">
+              <div id="full_url">
+                <a href="#">https://www.frontendmentor.io/home</a>
+              </div>
+              <!-- <div id="short_button_container"> -->
+                <div id="short_url">
+                  <a href="#">https://reLink/geOXp9</a>
+                </div>
+                <button id="copy_short_url" class="button">Copy</button>
+              <!-- </div> -->
+            </div>
+          </div>
+          <div id="benifits_heading">Advanced Statistics</div>
+          <p id="benifits_heading_body">
+            Track how your links are performing across the web with <br />our
+            advanced statistics dashboard.
+          </p>
+        </div>
+        <div id="benifits_contianer">
+          <div id="blue-divider">
+            <div class="blue-space"></div>
+          </div>
+
+          <div id="brand_recgonition" class="benifits_item_container">
+            <!-- <div class="benifits_image" id="brand_recognition_image">
+              <img src="./images/icon-brand-recognition.svg" alt="" />
+            </div> -->
+
+            <div class="benifits_card">
+              <div class="benifits_image" id="brand_recognition_image">
+                <img src="./images/icon-brand-recognition.svg" alt="" />
+              </div>
+              <div class="card_header">Brand Recognition</div>
+              <div class="card_body">
+                Boost your brand recognition with each click. Generic links
+                don’t mean a thing. Branded links help instil confidence in your
+                content.
+              </div>
+            </div>
+          </div>
+
+          <div id="detailed_records" class="benifits_item_container">
+            <!-- <div class="benifits_image" id="detailed_records_image">
+              <img src="./images/icon-detailed-records.svg" alt="" />
+            </div> -->
+            <div class="benifits_card">
+              <div class="benifits_image" id="detailed_records_image">
+                <img src="./images/icon-detailed-records.svg" alt="" />
+              </div>
+              <div class="card_header">Detailed Records</div>
+              <div class="card_body">
+                Gain insights into who is clicking your links. Knowing when and
+                where people engage with your content helps inform better
+                decisions.
+              </div>
+            </div>
+          </div>
+
+          <div id="fully_customizable" class="benifits_item_container">
+            <!-- <div class="benifits_image" id="full_cutomizable_image">
+              <img src="./images/icon-fully-customizable.svg" alt="" />
+            </div> -->
+            <div class="benifits_card">
+              <div class="benifits_image" id="full_cutomizable_image">
+                <img src="./images/icon-fully-customizable.svg" alt="" />
+              </div>
+              <div class="card_header">Fully Customizable</div>
+              <div class="card_body">
+                Improve brand awareness and content discoverability through
+                customizable links, supercharging audience engagement.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="boost">
+        <div id="boost_heading">Boost your links today</div>
+        <button class="button">Get Started</button>
+      </section>
+    </main>
+
+    <footer>
+      <div id="logo_footer_container">
+        <img src="./images/logo-footer.svg" alt="" />
+      </div>
+
+      <div class="footer_contact" id="footer_features">
+        <div class="link_heading">Features</div>
+        <a class="contact_link" href="#">Link</a>
+        <a class="contact_link" href="#">Shortening</a>
+        <a class="contact_link" href="#">Branded</a>
+        <a class="contact_link" href="#">Links</a>
+        <a class="contact_link" href="#">Analytics</a>
+      </div>
+
+      <div class="footer_contact" id="footer_resources">
+        <div class="link_heading">Resources</div>
+        <a class="contact_link" href="#">Blog</a>
+        <a class="contact_link" href="#">Developers</a>
+        <a class="contact_link" href="#">Support</a>
+      </div>
+
+      <div class="footer_contact" id="footer_company">
+        <div class="link_heading">Company</div>
+        <a class="contact_link" href="#">About</a>
+        <a class="contact_link" href="#">Our</a>
+        <a class="contact_link" href="#">Team</a>
+        <a class="contact_link" href="#">Careers</a>
+        <a class="contact_link" href="#">Contact</a>
+      </div>
+      <div id="social_media">
+        <img src="./images/icon-facebook.svg" alt="" />
+        <img src="./images/icon-twitter.svg" alt="" />
+        <img src="./images/icon-pinterest.svg" alt="" />
+        <img src="./images/icon-instagram.svg" alt="" />
+      </div>
+    </footer>
+
+    <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+    <script type="text/javascript" src="./config.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
