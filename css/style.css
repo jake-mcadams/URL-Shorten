@@ -147,6 +147,14 @@ footer {
   }
 }
 
+@media (max-width: 720px) {
+  #button_container {
+    width: 100%;
+    border-radius: 10px;
+    height: 3em;
+  }
+}
+
 #login {
   background: none;
   border: none;
@@ -646,27 +654,27 @@ footer {
   }
 }
 
-#full_url {
+.full_url {
   font-size: 18px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  width: 100%;
 }
 
-#full_url a {
+.full_url a {
   text-decoration: none;
   color: black;
   float: left;
 }
 
 @media (max-width: 720px) {
-  #full_url {
+  .full_url {
     float: left;
+    text-align: center;
   }
 }
 
-#short_url {
+.short_url {
   font-size: 18px;
   margin-left: auto;
   -ms-flex-item-align: center;
@@ -674,23 +682,23 @@ footer {
       align-self: center;
 }
 
-#short_url a {
+.short_url a {
   text-decoration: none;
   color: #2acfcf;
 }
 
-#short_url a:hover {
+.short_url a:hover {
   -webkit-filter: brightness(150%);
           filter: brightness(150%);
 }
 
 @media (max-width: 720px) {
-  #short_url {
+  .short_url {
     width: 100%;
     margin-left: 0;
     border-top: 1px solid #bfbfbf;
     padding-top: 0.5em;
-    text-align: left;
+    text-align: center;
   }
 }
 
@@ -726,14 +734,6 @@ footer {
     -webkit-box-pack: initial;
         -ms-flex-pack: initial;
             justify-content: initial;
-  }
-}
-
-@media (max-width: 720px) {
-  #copy_short_url {
-    width: 100%;
-    border-radius: 10px;
-    height: 3em;
   }
 }
 

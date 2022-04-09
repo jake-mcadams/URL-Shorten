@@ -11,7 +11,10 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-    <script src="https://kit.fontawesome.com/f68bcc2bd8.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/f68bcc2bd8.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,30 +24,29 @@
     />
     <!-- <script src="https://www.googleapis.com/auth/script.external_request"></script> -->
     <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
-    </style>
   </head>
   <body>
     <header>
-     <div id="img_nav_container">
-    <div id="img_container">
-      <img src="./images/logo.svg" alt="" />
-    </div>
+      <div id="img_nav_container">
+        <div id="img_container">
+          <img src="./images/logo.svg" alt="" />
+        </div>
 
-    <nav id="navigation">
-      <a class="nav_link" href="#">Features</a>
-      <a class="nav_link" href="#">Pricing</a>
-      <a class="nav_link" href="#">Resources</a>
-    </nav>
-  </div>
+        <nav id="navigation">
+          <a class="nav_link" href="#">Features</a>
+          <a class="nav_link" href="#">Pricing</a>
+          <a class="nav_link" href="#">Resources</a>
+        </nav>
+      </div>
 
-  <div class="mobile_navigation">
-    <i class="fa-solid fa-bars"></i>
-  </div>
+      <div class="mobile_navigation">
+        <i class="fa-solid fa-bars"></i>
+      </div>
 
-  <div id="button_container">
-    <button id="login">Login</button>
-    <button id="signUp" class="button">Sign Up</button>
-  </div> 
+      <div id="button_container">
+        <button id="login">Login</button>
+        <button id="signUp" class="button">Sign Up</button>
+      </div>
     </header>
 
     <main id="app_container">
@@ -58,7 +60,7 @@
           <button class="button">Get Started</button>
         </div>
         <div id="intro_image_container">
-          <img id="intro_image" src="/images/illustration-working.svg" alt="">
+          <img id="intro_image" src="/images/illustration-working.svg" alt="" />
         </div>
       </section>
 
@@ -67,47 +69,33 @@
           <form name="shorten_form" id="shorten">
             <div id="url_button_container">
               <div id="full_container">
-                <input id="fullUrl" class ="url_Input" type="text" name="fullUrl" placeholder="Shorten a link here..." autocomplete="off">
-                  <div id="add_link">Please add a link</div>
+                <input
+                  id="fullUrl"
+                  class="url_Input"
+                  type="text"
+                  name="fullUrl"
+                  placeholder="Shorten a link here..."
+                  autocomplete="off"
+                />
+                <div id="add_link">Please add a link</div>
               </div>
-              <button type="submit" class="button" id="shorten_button">Shorten It!</button>
+              <button type="submit" class="button" id="shorten_button">
+                Shorten It!
+              </button>
             </div>
           </form>
         </div>
         <div id="benifits_heading_container">
-          <div class="url_link_container">
+          <div class="url_link_container" id="link_container">
             <div class="test_url_shortened">
-              <div id="full_url">
+              <div class="full_url">
                 <a href="#">https://www.frontendmentor.io/home</a>
               </div>
-              <!-- <div id="short_button_container"> -->
-                <div id="short_url">
-                  <a href="#">https://reLink/geOXp9</a>
-                </div>
-                <button id="copy_short_url" class="button">Copy</button>
-              <!-- </div> -->
-            </div>
-            <div class="test_url_shortened">
-              <div id="full_url">
-                <a href="#">https://www.frontendmentor.io/home</a>
+
+              <div class="short_url">
+                <a href="#">https://reLink/geOXp9</a>
               </div>
-              <!-- <div id="short_button_container"> -->
-                <div id="short_url">
-                  <a href="#">https://reLink/geOXp9</a>
-                </div>
-                <button id="copy_short_url" class="button">Copy</button>
-              <!-- </div> -->
-            </div>
-            <div class="test_url_shortened">
-              <div id="full_url">
-                <a href="#">https://www.frontendmentor.io/home</a>
-              </div>
-              <!-- <div id="short_button_container"> -->
-                <div id="short_url">
-                  <a href="#">https://reLink/geOXp9</a>
-                </div>
-                <button id="copy_short_url" class="button">Copy</button>
-              <!-- </div> -->
+              <button onclick="buttonTest()" class="button copy-button">Copy</button>
             </div>
           </div>
           <div id="benifits_heading">Advanced Statistics</div>

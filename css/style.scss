@@ -87,6 +87,11 @@ footer {
   @include breakpoint(862px) {
     display: none;
   }
+  @include md {
+    width: 100%;
+    border-radius: 10px;
+    height: 3em;
+  }
 }
 
 #login {
@@ -401,11 +406,11 @@ footer {
   }
 }
 
-#full_url {
+.full_url {
   // flex: 50%;
   font-size: 18px;
   align-self: center;
-  width: 100%;
+  // width: 100%;
 
   a {
     text-decoration: none;
@@ -414,9 +419,10 @@ footer {
   }
   @include md {
     float: left;
+    text-align: center;
   }
 }
-#short_url {
+.short_url {
   font-size: 18px;
   margin-left: auto;
   align-self: center;
@@ -434,7 +440,7 @@ footer {
     margin-left: 0;
     border-top: 1px solid $Gray;
     padding-top: 0.5em;
-    text-align: left;
+    text-align: center;
   }
 }
 
@@ -454,13 +460,13 @@ footer {
   }
 }
 
-#copy_short_url {
-  @include md {
-    width: 100%;
-    border-radius: 10px;
-    height: 3em;
-  }
-}
+// #copy_short_url {
+//   @include md {
+//     width: 100%;
+//     border-radius: 10px;
+//     height: 3em;
+//   }
+// }
 
 #add_link {
   color: $Red;
