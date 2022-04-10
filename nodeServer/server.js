@@ -22,6 +22,9 @@ app.use((req, res, next) => {
   next();
 });
 
+// app.use(express.urlencoded({ extended: false }))
+app.use(express.json());
+
 app.use(mainRoute);
 
 // app.get('/testing', (req, res, next)=>{
