@@ -18,7 +18,5 @@ exports.addUrl = async (req, res, next) => {
       res.sendStatus(404);
     }
     await ShortUrl.create({ full: req.body.fullUrl });
-    // res.redirect("/");
-    // res.json({shortUrl: 'testing'})
-    // console.log(req.body)
+
   };

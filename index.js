@@ -73,11 +73,26 @@ const contentGet = () => {
     })
     .then((data) => {
       for (let [key, value] of Object.entries(data)) {
-        value.forEach((e) => console.log(e));
+        // value.forEach((e) => console.log(e));
         value.forEach((e) => {
           return createCard(e.full, e.short);
         });
       }
+      document.querySelectorAll(".copy-button").forEach((el) => {
+        el.addEventListener("click", (e) => {
+          console.log(e.target);
+          let thisButton = e.target;
+          if (thisButton.classList.contains("copied")) {
+            thisButton.style.backgroundColor="hsl(180, 66%, 49%)";
+            thisButton.innerHTML = 'Copy';
+            thisButton.classList.remove('copied');
+          } else {
+            thisButton.style.backgroundColor = "hsl(257, 27%, 26%)";
+            thisButton.innerHTML = "Copied!";
+            thisButton.classList.add("copied");
+          }
+        });
+      });
     });
 };
 
@@ -100,7 +115,7 @@ const createCard = (full, short) => {
   fullUrlLink.setAttribute("href", full);
   shortUrlLink.setAttribute("href", full);
   copyButton.setAttribute("class", "button");
-  copyButton.classList.add("copy-buton");
+  copyButton.classList.add("copy-button");
 
   //append nodes
   urlContainer.appendChild(fullUlrDiv);
@@ -115,18 +130,15 @@ const createCard = (full, short) => {
   linkContainer.appendChild(urlContainer);
 };
 
-function testIng(event) {
-  // console.log(event)
-}
-
 login.addEventListener("click", contentGet);
 
 signUp.addEventListener("click", () => {
-  document.querySelectorAll(".copy-button").forEach(function (el) {
-    el.addEventListener("click", function () {
-      console.log("working");
-    });
-  });
+  let text = "Testing copy API";
+  navigator.clipboard.writeText(text).then(()=>{
+    console.log('Clipboard work')
+  }, (err)=>{
+    console.error('Clipboard not work')
+  })
 });
 // copyButton.addEventListener('click', event=>{
 //   let button = event.target;
