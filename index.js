@@ -18,7 +18,10 @@ submitButton.addEventListener("click", (e) => {
     // createUrlLink();
     // return
   }
-  contentPost(urlInput.value);
+  // console.log(typeof(urlInput.value))
+  let httpResult = urlInput.value.search(/https/g)
+  console.log(httpResult)
+  // contentPost(urlInput.value);
 });
 
 const contentPost = (url) => {
@@ -75,17 +78,27 @@ const contentGet = () => {
       for (let [key, value] of Object.entries(data)) {
         // value.forEach((e) => console.log(e));
         value.forEach((e) => {
-          return createCard(e.full, e.short);
+          return createCard(e.full, e.short, e.id);
+          console.log(e)
         });
+        let shortID = document.querySelectorAll('.short_url');
+        shortID.forEach((e)=>{
+          console.log(e.firstChild.innerHTML)
+        })
       }
       document.querySelectorAll(".copy-button").forEach((el) => {
         el.addEventListener("click", (e) => {
           console.log(e.target);
+
+          let shortenedUrl = el.previousElementSibling.firstChild.innerHTML;
+          copyShortUrl(shortenedUrl);
+
+          console.log(shortenedUrl);
           let thisButton = e.target;
           if (thisButton.classList.contains("copied")) {
-            thisButton.style.backgroundColor="hsl(180, 66%, 49%)";
-            thisButton.innerHTML = 'Copy';
-            thisButton.classList.remove('copied');
+            thisButton.style.backgroundColor = "hsl(180, 66%, 49%)";
+            thisButton.innerHTML = "Copy";
+            thisButton.classList.remove("copied");
           } else {
             thisButton.style.backgroundColor = "hsl(257, 27%, 26%)";
             thisButton.innerHTML = "Copied!";
@@ -97,7 +110,7 @@ const contentGet = () => {
 };
 
 //Create new card with fetched data
-const createCard = (full, short) => {
+const createCard = (full, short, id) => {
   const urlContainer = document.createElement("div");
   const fullUlrDiv = document.createElement("div");
   const shortUrlDiv = document.createElement("div");
@@ -113,6 +126,7 @@ const createCard = (full, short) => {
   fullUlrDiv.setAttribute("class", "full_url");
   shortUrlDiv.setAttribute("class", "short_url");
   fullUrlLink.setAttribute("href", full);
+  shortUrlLink.setAttribute("id", id)
   shortUrlLink.setAttribute("href", full);
   copyButton.setAttribute("class", "button");
   copyButton.classList.add("copy-button");
@@ -132,28 +146,14 @@ const createCard = (full, short) => {
 
 login.addEventListener("click", contentGet);
 
-signUp.addEventListener("click", () => {
-  let text = "Testing copy API";
-  navigator.clipboard.writeText(text).then(()=>{
-    console.log('Clipboard work')
-  }, (err)=>{
-    console.error('Clipboard not work')
-  })
-});
-// copyButton.addEventListener('click', event=>{
-//   let button = event.target;
-//   button.style.background ="hsl(257, 27%, 26%)";
-//   button.innerHTML = 'Copied!'
-// })
-
-// testButton.addEventListener("click", ()=>{
-//   console.log(copyButtonList.length)
-//   document.querySelectorAll('.copy-button').forEach((el)=>{
-//     el.addEventListener(
-//       'click',
-//       ()=>{
-//         console.log('working')
-//       }
-//     )
-//   })
-// })
+//copy short url link
+const copyShortUrl = (short) => {
+  navigator.clipboard.writeText(short).then(
+    () => {
+      console.log(short);
+    },
+    (err) => {
+      console.log("Could not copy short url");
+    }
+  );
+};
