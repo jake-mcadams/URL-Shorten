@@ -1,7 +1,11 @@
-const express = require("express");
+// const express = require("express");
+// const app = express();
+// const mainRoute = require("./routes/mainroute");
+// const mongoose = require("mongoose");
+import express from 'express';
 const app = express();
-const mainRoute = require("./routes/mainroute");
-const mongoose = require("mongoose");
+import mainRoute from "./routes/mainroute.js";
+import mongoose from "mongoose";
 
 mongoose.connect("mongodb://localhost/urlShortener", {
   useNewUrlParser: true,

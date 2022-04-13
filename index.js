@@ -18,13 +18,24 @@ submitButton.addEventListener("click", (e) => {
     // createUrlLink();
     // return
   }
-  // console.log(typeof(urlInput.value))
-  let httpResult = urlInput.value.search(/https/g)
-  console.log(httpResult)
-  // contentPost(urlInput.value);
+  // console.log(urlInput.value)
+  const validUrlProtocol = (url = "") =>
+    ["http://", "https://", "ftp://"].some((protocol) =>
+      url.startsWith(protocol)
+    );
+
+  const validPro = validUrlProtocol(urlInput.value);
+
+  // if (validUrlProtocol(urlInput.value)) {
+  //   console.log("Has Protocol");
+  // } else {
+  //   console.error("Has no Protocol");
+  // }
+  contentPost(url, validPro)
 });
 
-const contentPost = (url) => {
+//Adding protocol value after client side check. if false node will prepend protocol in the reponse
+const contentPost = (url, protocol) => {
   const myHeaders = new Headers({
     "Content-Type": "application/json",
   });
@@ -37,6 +48,7 @@ const contentPost = (url) => {
   fetch(myRequest, {
     body: JSON.stringify({
       fullUrl: url,
+      hasProtocol: protocol,
     }),
   })
     .then((response) => {
@@ -79,12 +91,12 @@ const contentGet = () => {
         // value.forEach((e) => console.log(e));
         value.forEach((e) => {
           return createCard(e.full, e.short, e.id);
-          console.log(e)
+          console.log(e);
         });
-        let shortID = document.querySelectorAll('.short_url');
-        shortID.forEach((e)=>{
-          console.log(e.firstChild.innerHTML)
-        })
+        let shortID = document.querySelectorAll(".short_url");
+        shortID.forEach((e) => {
+          console.log(e.firstChild.innerHTML);
+        });
       }
       document.querySelectorAll(".copy-button").forEach((el) => {
         el.addEventListener("click", (e) => {
@@ -126,7 +138,7 @@ const createCard = (full, short, id) => {
   fullUlrDiv.setAttribute("class", "full_url");
   shortUrlDiv.setAttribute("class", "short_url");
   fullUrlLink.setAttribute("href", full);
-  shortUrlLink.setAttribute("id", id)
+  shortUrlLink.setAttribute("id", id);
   shortUrlLink.setAttribute("href", full);
   copyButton.setAttribute("class", "button");
   copyButton.classList.add("copy-button");

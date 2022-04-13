@@ -1,5 +1,7 @@
-const mongoose = require('mongoose');
-const {nanoid} = require('nanoid')
+// const mongoose = require('mongoose');
+// const {nanoid} = require('nanoid')
+import mongoose from "mongoose";
+import { nanoid } from "nanoid";
 
 const shortUrlSchema = new mongoose.Schema({
     id:{
@@ -18,4 +20,5 @@ const shortUrlSchema = new mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model("ShortUrl", shortUrlSchema);
+// module.exports = mongoose.model("ShortUrl", shortUrlSchema);
+export default mongoose.model("ShortUrl", shortUrlSchema);
