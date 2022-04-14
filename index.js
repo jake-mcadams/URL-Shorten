@@ -7,6 +7,7 @@ const linkContainer = document.getElementById("link_container");
 const copyButtonList = document.getElementsByClassName("copy-button");
 const testButton = document.getElementById("buttonTest");
 const testAddEvent = document.getElementById("signUp");
+const mainForm = document.getElementById("shorten");
 
 //functions
 
@@ -24,18 +25,39 @@ submitButton.addEventListener("click", (e) => {
       url.startsWith(protocol)
     );
 
-  const validPro = validUrlProtocol(urlInput.value);
+  const validTopDomain = (url = "") => 
+    [".com", ".org", ".net"].some((domain) => url.endsWith(domain));
+  
 
-  // if (validUrlProtocol(urlInput.value)) {
-  //   console.log("Has Protocol");
+  const validPro = validUrlProtocol(urlInput.value);
+  const validDom = validTopDomain(urlInput.value);
+
+  // if (validTopDomain(urlInput.value)) {
+  //   console.log(urlInput.value);
+  //   console.log(validPro)
+  //   console.log(validDom)
+  //   console.log("Has domain");
   // } else {
-  //   console.error("Has no Protocol");
+  //   let DM = '.com';
+  //   console.log(urlInput.value);
+  //   console.log(validPro)
+  //   console.log(validDom)
+  //   console.error("Has no domain, appending");
+  //   console.log(urlInput.value.concat(DM))
   // }
-  contentPost(url, validPro)
+
+  //append .com
+  if(!validDom){
+    contentPost(urlInput.value.concat('.com'), validPro)
+  }else {
+    contentPost(urlInput.value, validPro)
+  }
+  
+  mainForm.reset();
 });
 
 //Adding protocol value after client side check. if false node will prepend protocol in the reponse
-const contentPost = (url, protocol) => {
+const contentPost = (url, protocol, domain) => {
   const myHeaders = new Headers({
     "Content-Type": "application/json",
   });
@@ -49,6 +71,7 @@ const contentPost = (url, protocol) => {
     body: JSON.stringify({
       fullUrl: url,
       hasProtocol: protocol,
+      // hasTopDomain: domain,
     }),
   })
     .then((response) => {
