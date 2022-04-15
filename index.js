@@ -16,8 +16,7 @@ submitButton.addEventListener("click", (e) => {
   if (urlInput.value === null || urlInput.value === "") {
     urlInput.setAttribute("placeholder", "Please input a URL...");
     urlInput.classList.add("input_error");
-    // createUrlLink();
-    // return
+    return
   }
   // console.log(urlInput.value)
   const validUrlProtocol = (url = "") =>
@@ -25,39 +24,37 @@ submitButton.addEventListener("click", (e) => {
       url.startsWith(protocol)
     );
 
-  const validTopDomain = (url = "") => 
+  const validTopDomain = (url = "") =>
     [".com", ".org", ".net"].some((domain) => url.endsWith(domain));
-  
 
   const validPro = validUrlProtocol(urlInput.value);
   const validDom = validTopDomain(urlInput.value);
 
-  // if (validTopDomain(urlInput.value)) {
-  //   console.log(urlInput.value);
-  //   console.log(validPro)
-  //   console.log(validDom)
-  //   console.log("Has domain");
-  // } else {
-  //   let DM = '.com';
-  //   console.log(urlInput.value);
-  //   console.log(validPro)
-  //   console.log(validDom)
-  //   console.error("Has no domain, appending");
-  //   console.log(urlInput.value.concat(DM))
-  // }
-
-  //append .com
-  if(!validDom){
-    contentPost(urlInput.value.concat('.com'), validPro)
-  }else {
-    contentPost(urlInput.value, validPro)
+  //check for spaces
+  const spaceCheck =(v)=>{
+    if(/s/.test(v)){
+      return v.replace(/\s+/g, '');
+    }
   }
-  
+  //append .com
+  if (!validDom) {
+    // spaceCheck(urlInput.value);
+    contentPost(spaceCheck(urlInput.value).concat(".com"), validPro);
+    //get content after post
+    contentGet();
+  } else {
+    // console.log(contentPost(urlInput.value, validPro));
+    contentPost(spaceCheck(urlInput.value), validPro);
+    //get content after post
+    contentGet();
+  }
+
+  //clear form after submit
   mainForm.reset();
 });
 
 //Adding protocol value after client side check. if false node will prepend protocol in the reponse
-const contentPost = (url, protocol, domain) => {
+const contentPost = (url, protocol) => {
   const myHeaders = new Headers({
     "Content-Type": "application/json",
   });
@@ -71,7 +68,6 @@ const contentPost = (url, protocol, domain) => {
     body: JSON.stringify({
       fullUrl: url,
       hasProtocol: protocol,
-      // hasTopDomain: domain,
     }),
   })
     .then((response) => {
@@ -114,11 +110,10 @@ const contentGet = () => {
         // value.forEach((e) => console.log(e));
         value.forEach((e) => {
           return createCard(e.full, e.short, e.id);
-          console.log(e);
         });
         let shortID = document.querySelectorAll(".short_url");
         shortID.forEach((e) => {
-          console.log(e.firstChild.innerHTML);
+          // console.log(e.firstChild.innerHTML);
         });
       }
       document.querySelectorAll(".copy-button").forEach((el) => {
@@ -179,7 +174,7 @@ const createCard = (full, short, id) => {
   linkContainer.appendChild(urlContainer);
 };
 
-login.addEventListener("click", contentGet);
+// login.addEventListener("click", contentGet);
 
 //copy short url link
 const copyShortUrl = (short) => {

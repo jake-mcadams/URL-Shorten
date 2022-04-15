@@ -11,12 +11,13 @@ const getUrls = async (req, res, next) => {
 };
 
 const getUrlsDB = async (req, res, next) => {
-  const shortUrls = await ShortUrl.find();
-  if(Object.keys(shortUrls).length === 0){
+  const urlTotal = await ShortUrl.find();
+  const shortUrls = await ShortUrl.find({}).sort({_id:-1}).limit(1);
+  if(Object.keys(urlTotal).length === 0){
     console.log('No urls in DB')
   } else {
-    console.log(shortUrls)
-    console.log(typeof(shortUrls))
+    // console.log(shortUrls)
+    // console.log(typeof(shortUrls))
     res.json({ shortUrl: shortUrls });
   }
 };
@@ -31,9 +32,11 @@ const addUrl = async (req, res, next) => {
     console.log(`Received url: ${req.body.fullUrl}`)
     let prePendUrl = prependHttp(req.body.fullUrl);
     await ShortUrl.create({ full: prePendUrl });
+    getUrlsDB
   } else {
     console.log(`Received url: ${req.body.fullUrl}`)
     await ShortUrl.create({ full: req.body.fullUrl });
+    getUrlsDB
   }
 };
 
