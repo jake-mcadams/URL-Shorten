@@ -34,11 +34,14 @@ submitButton.addEventListener("click", (e) => {
   const spaceCheck =(v)=>{
     if(/s/.test(v)){
       return v.replace(/\s+/g, '');
+    }else{
+      return v
     }
   }
   //append .com
   if (!validDom) {
     // spaceCheck(urlInput.value);
+    console.log(urlInput.value)
     contentPost(spaceCheck(urlInput.value).concat(".com"), validPro);
     //get content after post
     contentGet();
